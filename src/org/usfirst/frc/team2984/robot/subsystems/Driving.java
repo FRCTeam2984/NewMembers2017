@@ -1,7 +1,6 @@
 package org.usfirst.frc.team2984.robot.subsystems;
 
 import org.usfirst.frc.team2984.robot.RobotMap;
-import org.usfirst.frc.team2984.robot.commands.DistanceSensor;
 
 import com.ctre.CANTalon;
 
