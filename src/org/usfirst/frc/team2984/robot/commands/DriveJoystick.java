@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2984.robot.commands;
 
 import org.usfirst.frc.team2984.robot.Robot;
+import org.usfirst.frc.team2984.robot.subsystems.Driving;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -12,7 +13,7 @@ public class DriveJoystick extends Command {
     public DriveJoystick() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	this.requires(Robot.Driving);
+    	this.requires(Driving.getInstance());
     }
 
     // Called just before this Command runs the first time
@@ -21,6 +22,7 @@ public class DriveJoystick extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Driving.getInstance().setSpeed(0, 0);
 //    	Robot.Driving.setSpeed(-Robot.oi.joystick.getRawAxis(1), -Robot.oi.joystick.getRawAxis(0));
     }
 

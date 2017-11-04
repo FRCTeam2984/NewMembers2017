@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2984.robot.subsystems;
 
 import org.usfirst.frc.team2984.robot.RobotMap;
+import org.usfirst.frc.team2984.robot.commands.DriveJoystick;
 
 import com.ctre.CANTalon;
 
@@ -16,9 +17,21 @@ public class Driving extends Subsystem {
 	private CANTalon fRight = new CANTalon(RobotMap.FRONT_RIGHT_TALON_ID);
 	private CANTalon rLeft = new CANTalon(RobotMap.REAR_LEFT_TALON_ID);
 	private CANTalon rRight = new CANTalon(RobotMap.REAR_RIGHT_TALON_ID);
+	private static Driving instance; 
+
+	public static Driving getInstance() {
+		if (instance == null) {
+			instance = new Driving();
+		}
+		return instance;
+	}
+	private Driving() {
+
+	}
 
 	public void initDefaultCommand() {
-//		this.setDefaultCommand(new DistanceSensor());
+		
+		 this.setDefaultCommand(new DriveJoystick());
 		// Set the default command for a subsystem here.
 		// setDefaultCommand(new MySpecialCommand());
 	}

@@ -20,7 +20,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 
 	public static OI oi;
-	public static final Driving Driving = new Driving();
+//	public static final Driving DRIVING = Driving.getInstance();
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
