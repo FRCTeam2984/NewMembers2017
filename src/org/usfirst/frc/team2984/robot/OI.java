@@ -29,7 +29,9 @@ public class OI {
 
 		Button buttonSecond = new JoystickButton(stick, 2);
 		buttonSecond.whenPressed(new TurnToAngle(90));
-		buttonSecond.whenPressed(new CalibrateGyro());
+		
+		Button buttonThird = new JoystickButton(stick, 3);
+		buttonThird.whenPressed(new CalibrateGyro());
 
 	}
 	// There are a few additional built in buttons you can use. Additionally,

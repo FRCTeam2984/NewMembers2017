@@ -25,7 +25,7 @@ public class TurnToAngle extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		Driving.getInstance().setSpeed(0, 0.3);
+		Driving.getInstance().setSpeed(0, -0.3);
 
 	}
 
