@@ -22,7 +22,8 @@ public class DriveJoystick extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Driving.getInstance().setSpeed(0, 0);
+    	Driving.getInstance().setSpeed( -Robot.oi.stick.getRawAxis(1),Robot.oi.stick.getRawAxis(2));
+    	
 //    	Robot.Driving.setSpeed(-Robot.oi.joystick.getRawAxis(1), -Robot.oi.joystick.getRawAxis(0));
     }
 
