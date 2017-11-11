@@ -1,6 +1,9 @@
 package org.usfirst.frc.team2984.robot;
 
+import org.usfirst.frc.team2984.robot.commands.CalibrateGyro;
 import org.usfirst.frc.team2984.robot.commands.Drive;
+import org.usfirst.frc.team2984.robot.commands.TurnToAngle;
+import org.usfirst.frc.team2984.robot.subsystems.Gyroscope;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -17,10 +20,19 @@ public class OI {
 	// You create one by telling it which joystick it's on and which button
 	// number it is.
 	// Button button = new JoystickButton(stick, buttonNumber);
+	public Joystick stick = new Joystick(0);
+
 	public OI() {
-		Joystick stick = new Joystick(1);
-		Button button = new JoystickButton(stick, 1);
-		button.whenPressed(new Drive());
+		Button buttonFirst = new JoystickButton(stick, 1);
+		buttonFirst.whenPressed(new Drive());
+		
+
+		Button buttonSecond = new JoystickButton(stick, 2);
+		buttonSecond.whenPressed(new TurnToAngle(90));
+		
+		Button buttonThird = new JoystickButton(stick, 3);
+		buttonThird.whenPressed(new CalibrateGyro());
+
 	}
 	// There are a few additional built in buttons you can use. Additionally,
 	// by subclassing Button you can create custom triggers and bind those to
