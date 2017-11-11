@@ -30,8 +30,8 @@ public class Gyroscope extends Subsystem {
 	}
 
 	public double getAngle() {
-		SmartDashboard.putNumber("Angle", gyro.getAngle() % 360);
-		return gyro.getAngle() % 360;
+		SmartDashboard.putNumber("Angle", gyro.getAngle());
+		return gyro.getAngle();
 	}
 
 	public void calibrate() {
