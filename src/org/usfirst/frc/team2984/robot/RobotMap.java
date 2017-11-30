@@ -21,4 +21,6 @@ public class RobotMap {
 	public static final int FRONT_RIGHT_TALON_ID = 4;
 	public static final int REAR_LEFT_TALON_ID = 16;
 	public static final int REAR_RIGHT_TALON_ID = 1;
+	public static final double pidProportion = 0.05;
+
 }

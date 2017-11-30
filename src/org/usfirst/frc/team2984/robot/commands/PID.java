@@ -1,21 +1,17 @@
 package org.usfirst.frc.team2984.robot.commands;
 
 import org.usfirst.frc.team2984.robot.RobotMap;
-import org.usfirst.frc.team2984.robot.subsystems.Driving;
 import org.usfirst.frc.team2984.robot.subsystems.Gyroscope;
 
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.InstantCommand;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-/**
- *
- */
-public class TurnToAngle extends Command {
-	private double angleToTurnTo;
 
-	public TurnToAngle(double angleToTurnTo) {
-		this.requires(Driving.getInstance());
-		this.angleToTurnTo = angleToTurnTo;
+public class PID extends InstantCommand {
+	private double proportionDelta;
+
+	public PID(double proportionDelta) {
+		this.proportionDelta = proportionDelta;
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
 	}
@@ -26,20 +22,12 @@ public class TurnToAngle extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		double tmpTurnTo = -(angleToTurnTo-Gyroscope.getInstance().getAngle())*RobotMap.pidProportion;
-		tmpTurnTo = Math.max(Math.min(tmpTurnTo, 0.5), -0.5);
-		SmartDashboard.putNumber("pidProportion", tmpTurnTo);
-		Driving.getInstance().setSpeed(0, tmpTurnTo);
+		SmartDashboard.putNumber("pidValue", RobotMap.pidProportion);
+//		RobotMap.pidProportion+=proportionDelta;
 
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
-	protected boolean isFinished() {
-
-		return Math.abs(Gyroscope.getInstance().getAngle()-angleToTurnTo) <= 1;
-	}
-
-	// Called once after isFinished returns true
 	protected void end() {
 	}
 
